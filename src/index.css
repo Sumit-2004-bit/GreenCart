@@ -1,0 +1,22 @@
+:root {
+  --primary: #01b935;
+  --hover: #06fe4c;
+  --accent: #52fe83;
+  --light-green: #9fffba;
+  --background: #ebfff0;
+
+  --white: #ffffff;
+  --text: #1f2937;
+  --gray: #6b7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+}
