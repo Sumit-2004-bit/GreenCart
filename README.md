@@ -4,7 +4,7 @@ A modern, responsive e-commerce web application built with **React.js** that all
 
 ## 🚀 Live Demo
 
-🔗 **Live Website:** Coming soon
+🔗 **Live Website:** https://green-cart-roan-beta.vercel.app/
 
 🔗 **GitHub Repository:**  
 https://github.com/Sumit-2004-bit/GreenCart
@@ -74,17 +74,17 @@ Optimized for desktop, laptop, tablet, and mobile devices.
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| React.js | Frontend UI |
-| JavaScript (ES6+) | Application logic |
-| HTML5 | Structure |
-| CSS3 | Styling and responsive design |
-| React Router | Client-side routing |
-| Context API | Global state management |
-| LocalStorage | Cart and session persistence |
-| Vite | Development and build tool |
-| DummyJSON API | Product data |
+| Technology        | Purpose                       |
+| ----------------- | ----------------------------- |
+| React.js          | Frontend UI                   |
+| JavaScript (ES6+) | Application logic             |
+| HTML5             | Structure                     |
+| CSS3              | Styling and responsive design |
+| React Router      | Client-side routing           |
+| Context API       | Global state management       |
+| LocalStorage      | Cart and session persistence  |
+| Vite              | Development and build tool    |
+| DummyJSON API     | Product data                  |
 
 ---
 
