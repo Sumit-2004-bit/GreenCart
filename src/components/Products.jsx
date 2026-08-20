@@ -11,40 +11,65 @@ function Products(props) {
 
   const [error, setError] = useState("");
 
+  // =========================
+  // LOAD PRODUCTS
+  // =========================
+
   useEffect(function () {
+    setLoading(true);
+
     getProducts()
       .then(function (data) {
-        setProducts(data);
+        setProducts(Array.isArray(data) ? data : []);
 
         setLoading(false);
       })
 
-      .catch(function () {
+      .catch(function (err) {
+        console.log("Product error:", err);
+
         setError("Unable to load products.");
 
         setLoading(false);
       });
   }, []);
 
-  /* =========================
-     FILTER
-  ========================= */
+  // =========================
+  // CATEGORY CHANGE
+  // =========================
+
+  function handleCategorySelect(event) {
+    const category = event.target.value;
+
+    props.handleCategoryChange(category);
+  }
+
+  // =========================
+  // SEARCH + CATEGORY FILTER
+  // =========================
 
   const filteredProducts = products.filter(function (product) {
-    const matchesSearch = product.title
+    const searchValue = props.searchText || "";
+
+    const productTitle = product.title || "";
+
+    const productCategory = product.category || "";
+
+    const matchesSearch = productTitle
       .toLowerCase()
-      .includes(props.searchText.toLowerCase());
+      .includes(searchValue.toLowerCase());
 
     const matchesCategory =
       props.selectedCategory === "all" ||
-      product.category === props.selectedCategory;
+      productCategory.toLowerCase() ===
+        String(props.selectedCategory).toLowerCase();
 
     return matchesSearch && matchesCategory;
   });
 
-  /* =========================
-     SORT
-  ========================= */
+  // =========================
+  // SORT PRODUCTS
+  // =========================
 
   const sortedProducts = [...filteredProducts];
 
@@ -66,9 +91,9 @@ function Products(props) {
     });
   }
 
-  /* =========================
-     LOADING
-  ========================= */
+  // =========================
+  // LOADING
+  // =========================
 
   if (loading) {
     return (
@@ -98,9 +123,9 @@ function Products(props) {
     );
   }
 
-  /* =========================
-     ERROR
-  ========================= */
+  // =========================
+  // ERROR
+  // =========================
 
   if (error) {
     return (
@@ -118,19 +143,24 @@ function Products(props) {
 
   return (
     <section className="products" id="products">
+      {/* =========================
+          TITLE
+          ========================= */}
+
       <div className="section-title">
         <p>Our Collection</p>
 
         <h2>Featured Products</h2>
       </div>
 
-      {/* FILTERS */}
+      {/* =========================
+          FILTERS
+          ========================= */}
 
       <div className="filter-box">
-        <select
-          value={props.selectedCategory}
-          onChange={props.handleCategoryChange}
-        >
+        {/* CATEGORY */}
+
+        <select value={props.selectedCategory} onChange={handleCategorySelect}>
           <option value="all">All Categories</option>
 
           <option value="beauty">Beauty</option>
@@ -152,18 +182,22 @@ function Products(props) {
           <option value="womens-shoes">Women's Shoes</option>
         </select>
 
+        {/* SORT */}
+
         <select value={props.sortOption} onChange={props.handleSortChange}>
           <option value="default">Sort By</option>
+
+          <option value="rating">Highest Rated</option>
 
           <option value="low">Price: Low to High</option>
 
           <option value="high">Price: High to Low</option>
-
-          <option value="rating">Highest Rated</option>
         </select>
       </div>
 
-      {/* RESULT COUNT */}
+      {/* =========================
+          RESULT COUNT
+          ========================= */}
 
       <div className="product-result-info">
         <p>
@@ -171,7 +205,9 @@ function Products(props) {
         </p>
       </div>
 
-      {/* EMPTY */}
+      {/* =========================
+          EMPTY
+          ========================= */}
 
       {sortedProducts.length === 0 ? (
         <div className="message-box empty-box">

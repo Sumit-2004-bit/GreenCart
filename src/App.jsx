@@ -20,19 +20,43 @@ import { AuthProvider } from "./context/AuthContext";
 import "./App.css";
 
 function App() {
+  // =========================
+  // SEARCH
+  // =========================
+
   const [searchText, setSearchText] = useState("");
+
+  // =========================
+  // CATEGORY
+  // =========================
 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  // =========================
+  // SORT
+  // =========================
+
   const [sortOption, setSortOption] = useState("default");
+
+  // =========================
+  // SEARCH HANDLER
+  // =========================
 
   function handleSearch(event) {
     setSearchText(event.target.value);
   }
 
+  // =========================
+  // CATEGORY HANDLER
+  // =========================
+
   function handleCategoryChange(category) {
     setSelectedCategory(category);
   }
+
+  // =========================
+  // SORT HANDLER
+  // =========================
 
   function handleSortChange(event) {
     setSortOption(event.target.value);
@@ -41,10 +65,16 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        {/* =========================
+            NAVBAR
+            ========================= */}
+
         <Navbar searchText={searchText} handleSearch={handleSearch} />
 
         <Routes>
-          {/* HOME */}
+          {/* =========================
+              HOME
+              ========================= */}
 
           <Route
             path="/"
@@ -52,10 +82,18 @@ function App() {
               <>
                 <Hero />
 
+                {/* =========================
+                    CATEGORIES
+                    ========================= */}
+
                 <Categories
                   selectedCategory={selectedCategory}
                   handleCategoryChange={handleCategoryChange}
                 />
+
+                {/* =========================
+                    PRODUCTS
+                    ========================= */}
 
                 <Products
                   searchText={searchText}
@@ -70,23 +108,33 @@ function App() {
             }
           />
 
-          {/* PRODUCT DETAILS */}
+          {/* =========================
+              PRODUCT DETAILS
+              ========================= */}
 
           <Route path="/products/:id" element={<ProductDetails />} />
 
-          {/* CART */}
+          {/* =========================
+              CART
+              ========================= */}
 
           <Route path="/cart" element={<Cart />} />
 
-          {/* LOGIN */}
+          {/* =========================
+              LOGIN
+              ========================= */}
 
           <Route path="/login" element={<Login />} />
 
-          {/* REGISTER */}
+          {/* =========================
+              REGISTER
+              ========================= */}
 
           <Route path="/register" element={<Register />} />
 
-          {/* PROTECTED CHECKOUT */}
+          {/* =========================
+              PROTECTED CHECKOUT
+              ========================= */}
 
           <Route
             path="/checkout"
