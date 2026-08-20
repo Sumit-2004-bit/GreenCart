@@ -325,7 +325,7 @@ For a real-world application, authentication and user data should be handled by 
 
 ### 🛍️ Products & Categories
 
-![GreenCart Products](public/screenshots/products.png)
+![GreenCart Products](public/screenshots/product.png)
 
 ### 📦 Product Details
 
@@ -333,11 +333,15 @@ For a real-world application, authentication and user data should be handled by 
 
 ### 🛒 Shopping Cart
 
-![GreenCart Cart](public/screenshots/cart.png)
+![GreenCart Shopping Cart](public/screenshots/shopping-cart.png)
 
-### 🔐 Authentication
+### 🔐 Login
 
 ![GreenCart Login](public/screenshots/login.png)
+
+### 📝 Register
+
+![GreenCart Register](public/screenshots/register.png)
 
 ## 👨‍💻 Author
 
