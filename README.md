@@ -319,29 +319,25 @@ For a real-world application, authentication and user data should be handled by 
 
 ## 📸 Screenshots
 
-Screenshots can be added after deployment.
+### 🏠 Home Page
 
-### Home Page
+![GreenCart Home Page](public/screenshots/home.png)
 
-_Add screenshot here_
+### 🛍️ Products & Categories
 
-### Products
+![GreenCart Products](public/screenshots/products.png)
 
-_Add screenshot here_
+### 📦 Product Details
 
-### Product Details
+![GreenCart Product Details](public/screenshots/product-details.png)
 
-_Add screenshot here_
+### 🛒 Shopping Cart
 
-### Shopping Cart
+![GreenCart Cart](public/screenshots/cart.png)
 
-_Add screenshot here_
+### 🔐 Authentication
 
-### Authentication
-
-_Add screenshot here_
-
----
+![GreenCart Login](public/screenshots/login.png)
 
 ## 👨‍💻 Author
 
